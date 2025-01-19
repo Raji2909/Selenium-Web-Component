@@ -1,0 +1,32 @@
+package org.test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+public class Signup {
+	public static void main(String[] args) throws Exception {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.guvi.in/");
+        WebElement signup= driver.findElement(By.xpath("/html/body/div[1]/div/div[5]/div/div[2]/a"));signup.click();
+        WebElement name=driver.findElement(By.xpath("//input[@id=\"name\"]"));
+        name.sendKeys("Chennai");
+        WebElement email = driver.findElement(By.xpath("//input[@id='email']"));
+	      email.sendKeys("Chennai123@gmail.com");
+	      WebElement pass = driver.findElement(By.xpath("//input[@id='password']"));
+	      pass.sendKeys("Chennai@123");
+	      WebElement MobNo = driver.findElement(By.xpath("//input[@id='mobileNumber']"));
+	      MobNo.sendKeys("1234456789");
+	      WebElement signup1 = driver.findElement(By.xpath("//*[@id=\"signup-btn\"]"));signup1.click();
+	      WebElement profile=driver.findElement(By.xpath("//*[@id=\"profileDrpDwn\"]"));
+        profile.sendKeys("Student");
+        WebElement degree=driver.findElement(By.xpath("//*[@id=\"degreeDrpDwn\"]"));
+        degree.sendKeys("B.com");
+        WebElement passout=driver.findElement(By.xpath("//*[@id=\"year\"]"));
+        passout.sendKeys("2024");
+        WebElement submit = driver.findElement(By.xpath("//*[@id=\"details-btn\"]"));submit.click();
+        System.out.println("User is registered Successfully");
+	}
+}
