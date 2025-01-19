@@ -1,0 +1,24 @@
+package org.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Login {
+	public static void main(String[] args) throws Exception {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.guvi.in/");
+        WebElement login = driver.findElement(By.xpath("//*[@id=\"login-btn\"]"));login.click();
+        WebElement email1 = driver.findElement(By.xpath("//input[@id='email']"));
+	    email1.sendKeys("Chennai123@gmail.com");
+	    WebElement pass1 = driver.findElement(By.xpath("//input[@id='password']"));
+	    pass1.sendKeys("Chennai@123");
+	    WebElement login1 = driver.findElement(By.xpath("//*[@id=\"login-btn\"]"));login1.click();
+	    System.out.println("User is Logged in Successfully");
+}
+}
